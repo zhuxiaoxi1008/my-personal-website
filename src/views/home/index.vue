@@ -1,9 +1,9 @@
 <template>
-  <hello></hello>
+  <welcome></welcome>
 </template>
 
 <script setup>
-import hello from './components/hello.vue'
+import welcome from './components/welcome-page.vue'
 
 </script>
 

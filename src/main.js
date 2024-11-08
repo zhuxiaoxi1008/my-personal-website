@@ -16,4 +16,7 @@ app.use(elementPlus)
 app.use(createPinia())
 app.use(router)
 
+import globalVariable from './globalVariable'
+app.use(globalVariable)
+
 app.mount('#app')
