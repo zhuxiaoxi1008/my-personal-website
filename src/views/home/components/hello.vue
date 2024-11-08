@@ -1,12 +1,12 @@
 <template>
   <section class="hello-wrapper">
     <span class="hello_text" data-text="Hello Resume">Hello Resume</span>
-    <introduce></introduce>
+    <spark></spark>
   </section>
 </template>
 
 <script setup>
-import introduce from "./introduce.vue";
+import spark from "./spark.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -17,30 +17,43 @@ import introduce from "./introduce.vue";
 }
 
 .hello_text {
-  pointer-events: none;
-  z-index: 10;
   margin: 0;
-  white-space: nowrap;
-  position: absolute;
-  font-family: "Arial";
+  padding: 0;
+  pointer-events: none;
   font-size: 7em;
-  color: white;
-  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  position: absolute;
   left: 50%;
   top: 50%;
-  text-transform: uppercase;
+  transform: translate(-50%, -70%);
+  white-space: nowrap;
+  z-index: 1;
+  font-weight: 900;
+  mix-blend-mode: color-dodge;
+  font-family: "Arial";
+  color: #fff;
+  // -webkit-box-reflect: below -5px linear-gradient(transparent, rgba(0, 0, 0, .4));
+  // -webkit-text-stroke: 1.3px white;
+  // letter-spacing: 1.125px;
 }
 
 .hello_text:before {
   content: attr(data-text);
-  background: linear-gradient(0deg, white 0, transparent 70%);
-  color: transparent;
-  opacity: 0.5;
+  opacity: 0.15;
   position: absolute;
   transform-origin: bottom;
   transform: rotateX(180deg);
-  line-height: 0.9em;
-  background-clip: text;
+  line-height: 1.0em;
   filter: blur(1px);
+  mix-blend-mode: color-dodge;
+}
+
+@media (min-width: 100px) and (max-width: 768px) {
+  .hello_text {
+    font-size: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>
