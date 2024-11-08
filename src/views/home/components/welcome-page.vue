@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-import spark from "./spark.vue";
-// import downArrow from "@/components/icon/down-arrow.vue";
+// import fluid from "./fluid.vue";
+import spark from './spark.vue'
 import MouseMove from "@/components/icon/mouse-move.vue"
 
 const instance = getCurrentInstance();
