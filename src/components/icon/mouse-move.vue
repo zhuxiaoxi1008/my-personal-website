@@ -19,7 +19,7 @@
 }
 
 #mouse-scroll {
-    position: fixed;
+    position: absolute;
     margin: auto;
     left: 50%;
     bottom: 8px;

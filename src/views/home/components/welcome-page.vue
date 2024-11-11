@@ -2,7 +2,7 @@
   <section class="hello-wrapper">
     <span class="hello_text" :data-text="proxy.$global.welcomeText">{{ proxy.$global.welcomeText }}</span>
     <span class="sub_text":data-text="proxy.$global.subText">{{ proxy.$global.subText }}</span>
-    <mouse-move class="down-arrow"></mouse-move>
+    <mouse-move class="down-arrow" @click="handleClick"></mouse-move>
     <spark></spark>
   </section>
 </template>
@@ -15,6 +15,11 @@ import MouseMove from "@/components/icon/mouse-move.vue"
 const instance = getCurrentInstance();
 const {proxy} = instance;
 
+const handleClick = () => {
+  let height = document.documentElement.clientHeight;
+  window.scrollTo({top: height, behavior: 'smooth'});
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -22,6 +27,7 @@ const {proxy} = instance;
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .hello_text {
