@@ -1,8 +1,6 @@
 <template>
     <section class="img-wrapper">
-        <div class="black-bg">
-
-        </div>
+        <div class="black-bg"></div>
     </section>
 </template>
 
@@ -29,8 +27,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+  background-image: linear-gradient(to bottom, #000000, transparent);
   z-index: 2;
+  color: red;
 }
 
 </style>
