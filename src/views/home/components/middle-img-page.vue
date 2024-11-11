@@ -14,7 +14,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url('/shan1.jpg');
+  background-image: url('/himalaya.jpg');
   background-attachment: fixed;
   background-position: top center;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+  background-image: linear-gradient(to bottom, #000, transparent, transparent);
   z-index: 2;
 }
 
