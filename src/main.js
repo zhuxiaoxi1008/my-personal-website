@@ -19,4 +19,7 @@ app.use(router)
 import globalVariable from './globalVariable'
 app.use(globalVariable)
 
+import iconPlugin from './icon-plugin'
+app.use(iconPlugin)
+
 app.mount('#app')

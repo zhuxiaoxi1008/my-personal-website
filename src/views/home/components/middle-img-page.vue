@@ -12,7 +12,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url('/himalaya.jpg');
+  background-image: url('/shan1.jpg');
   background-attachment: fixed;
   background-position: top center;
   background-repeat: no-repeat;

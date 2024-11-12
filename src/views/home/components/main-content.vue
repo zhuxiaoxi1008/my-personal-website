@@ -1,7 +1,7 @@
 <template>
   <section class="main-content">
     <section  class="first-section">
-      <section  class="container-row">
+      <section class="container-row">
         <div  class="container-left">
           <div  class="sidebar" :class="{'tranY-40': isTrans}">
             <div  class="sidebar-card">
@@ -12,59 +12,31 @@
                   src="/person.png"
                 />
               </div>
-              <div  class="sidebar-name">ZHOU YI</div>
-              <div  class="sidebar-label">" Hi ! 👋 "</div>
-              <div  class="c-divider c-mb-40"></div>
-              <div  class="sidebar-social">
-                <a
-                  
-                  href="https://github.com/ZHYI-source"
-                  target="_blank"
-                  ><i  class="iconfont icon-github"></i></a
-                ><a  href="https://gitee.com/Z568_568" target="_blank"
-                  ><i  class="iconfont icon-gitee"></i
-                ></a>
+              <div  class="sidebar-name">{{ proxy.$global.name }}</div>
+              <div  class="sidebar-label">{{ proxy.$global.hi }}</div>
+              <el-divider class="divider" border-style="dashed" />
+              <div class="sidebar-social">
+                <Icon size="28">
+                  <LogoGithub></LogoGithub>
+                </Icon>
+                <Icon size="28" style="margin-left: 10px">
+                  <Blog></Blog>
+                 </Icon>
               </div>
-              <div  class="c-divider c-mb-40 c-mt-40"></div>
-              <ul  class="sidebar-other">
-                <li  class="other-item">
-                  <span  class="item-label">城市：</span
-                  ><span  class="item-label-light">贵州·贵阳</span>
+              <el-divider class="divider" border-style="dashed" />
+              <ul>
+                <li class="other-item">
+                  <span  class="item-label">{{proxy.$global.cityLabel}}:</span
+                  ><span  class="item-label-light">{{proxy.$global.city}}</span>
                 </li>
-                <li  class="other-item">
-                  <span  class="item-label">交流群：</span
-                  ><span  class="item-label-light">🐧 529675917</span>
+                <li class="other-item">
+                  <span  class="item-label">{{proxy.$global.emailLabel}}:</span>
+                  <span  class="item-label-light">{{proxy.$global.email}}</span>
                 </li>
-                <li  class="other-item">
-                  <span  class="item-label" title="码云关注"
-                    >关注我：</span
-                  >
-                  <div  class="item-label-light">
-                    <div data-v-1f0a8cfc=""  class="align">
-                    
-                    </div>
-                  </div>
-                </li>
-                <li  class="other-item">
-                  <span  class="item-label">微信/QQ：</span>
-                </li>
-                <div  class="social">
-                  <img
-                    
-                    width="80"
-                    class="lazy-image"
-                    data-src="https://blogapi.zhouyi.run/v1/common/files/preview/img/1697612406209.jpg"
-                    src="https://blogapi.zhouyi.run/v1/common/files/preview/img/1697612406209.jpg"
-                  /><img
-                    
-                    width="80"
-                    class="lazy-image"
-                    data-src="https://blogapi.zhouyi.run/v1/common/files/preview/img/1697791317828.png"
-                    src="https://blogapi.zhouyi.run/v1/common/files/preview/img/1697791317828.png"
-                  />
-                </div>
               </ul>
-              <div  class="c-divider c-mb-40"></div>
+             
+             
+             <!--  
               <div
                 
                 class="sidebar-btn"
@@ -74,7 +46,7 @@
               </div>
               <span  class="downResume" style="color: rgb(245, 67, 37)"
                 >下载简历</span
-              >
+              > -->
             </div>
           </div>
         </div>
@@ -1203,15 +1175,16 @@
 </template>
 
 <script setup>
+import { LogoGithub } from '@vicons/carbon';
+
+const instance = getCurrentInstance();
+const {proxy} = instance;
 
 const isTrans = ref(false)
 
 window.addEventListener('scroll', (e) => {
   const clientHeight = document.documentElement.clientHeight
   const scrollTop = document.documentElement.scrollTop
-  console.log('scrollTop', scrollTop)
-  console.log('clientHeight', clientHeight)
-  console.log(scrollTop >  clientHeight)
   if( scrollTop >  clientHeight){
     isTrans.value = true;
   } else {
@@ -1230,23 +1203,56 @@ window.addEventListener('scroll', (e) => {
   position: relative;
 }
 
-.container-row{
+
+.sidebar-name{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.sidebar-name, .sidebar-label, .sidebar-social {
+    text-align: center;
+}
+
+.sidebar-social span:hover{
+  color: $primary-color;
+}
+
+
+
+.sidebar-card{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 70px 25px 35px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px -2px #0000004d;
+  background-color: #fff;
+  background-image: url(../../../assets/images/bg-map.png);
+  background-position: center center;
+}
+
+.sidebar-card::before{
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: -8px;
+  height: 8px;
+  width: calc(100% - 60px);
+  background-color: #fcfcfe;
+  border-radius: 5px 5px 0 0;
+  opacity: .3;
 }
 
 .sidebar-avatar{
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  background-color: #fff;
+  align-items: center;
+  margin-bottom: 20px;
+  position: absolute;
+  top: -65px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .sidebar-avatar-img{
@@ -1258,8 +1264,62 @@ window.addEventListener('scroll', (e) => {
 
 .tranY-40{
   transform: translateY(-40%);
-  transition-property: transform;
-  transition-duration: 0.5s;
+  transition: all .3s linear;
+  // transition-property: transform;
+  // transition-duration: 0.5s;
 }
+
+.sidebar{
+  position: relative;
+}
+
+.container-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-left{
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.container-right{
+  flex: 2;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.divider{
+  margin: 2em 0;
+}
+
+li {
+  list-style: none;
+}
+
+.other-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .item-label{
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: $primary-text;
+    }
+
+    .item-label-light{
+      color: $secondary-text;
+    }
+}
+
+
 
 </style>
