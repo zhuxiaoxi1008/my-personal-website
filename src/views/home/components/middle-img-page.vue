@@ -1,8 +1,6 @@
 <template>
     <section class="img-wrapper">
-        <div class="black-bg">
-
-        </div>
+        <div class="black-bg"></div>
     </section>
 </template>
 
