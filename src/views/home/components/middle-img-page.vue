@@ -47,7 +47,7 @@ window.addEventListener("scroll", (e) => {
   border-radius: 0 0 20px 20px;
   box-shadow: 0 2px 20px #0000001a;
   transition: all 0.4s linear;
-  background-image: url("/shan1.jpg");
+  background-image: url("/images/shan1.jpg");
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -62,7 +62,7 @@ window.addEventListener("scroll", (e) => {
   height: 100%;
   display: flex;
   align-items: flex-end;
-  background-image: linear-gradient(to bottom, #000, transparent, transparent);
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0),rgb(0, 0, 0),rgba(0, 0, 0, .5),transparent, transparent);
 }
 
 .row-warpper {
@@ -104,7 +104,7 @@ window.addEventListener("scroll", (e) => {
   font-weight: 700;
   line-height: 1.2;
   text-shadow: 0 1px 10px rgba(255, 255, 255, 0.2);
-  background: url("/title_bg.png");
+  background: url("/images/title_bg.png");
   background-clip: text;
   color: transparent;
   margin: 40px 0;

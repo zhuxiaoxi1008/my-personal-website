@@ -50,29 +50,44 @@ let global = {
         label: '📝 关于',
         steps: [
             {
-                icon:'.//logo-b.png',
+                icon:'./images/logo-b.png',
                 title: '2008 - 2012',
-                description: '宝鸡文理学院-电子信息科学与技术'
+                description: {
+                    label: '宝鸡文理学院',
+                    content: '电子信息科学与技术'
+                }
             },
             {
-                icon:'.//logo-x.png',
+                icon:'./images/logo-x.png',
                 title: '2012 - 2015',
-                description: '西安理工大学-集成电路工程'
+                description: {
+                    label: '西安理工大学',
+                    content: '集成电路工程'
+                }
             },
             {
-                icon:'.//logo-h.png',
+                icon:'./images/logo-h.png',
                 title: '2015 - 2018',
-                description: '西安航天天绘-软件开发工程师'
+                description: {
+                    label: '西安航天天绘',
+                    content: '软件开发工程师'
+                }
             },
             {
-                icon:'.//logo-h3c.png',
+                icon:'./images/logo-h3c.png',
                 title: '2018 - 现在',
-                description: '新华三-前端负责人'
+                description: {
+                    label: '新华三',
+                    content: '前端负责人'
+                }
             },
             {
-                icon:'.//logo-s.png',
-                title: '现在 - 未来',
-                description: '与你相遇，共创未来'
+                icon:'./images/logo-s.png',
+                title: '现在 - 将来',
+                description: {
+                    label: '与你相遇，共创未来',
+                    content: '',
+                }
             }
         ]
     }

@@ -2,20 +2,23 @@
   <section class="about-me-wrapper">
     <h3>{{ proxy.$global.aboutMe.label }}</h3>
     <div class="about-me-content">
-      <el-steps align-center :active="4" :direction="direction">
+      <el-steps align-center active="5" :direction="direction">
         <el-step
           v-for="(item, index) in proxy.$global.aboutMe.steps"
           :key="index"
           :id="'el-step-' + index"
         >
-          <template v-slot:title>
-            <div>{{ item.title }}</div>
-          </template>
-          <template v-slot:description>
-            <div>{{ item.description }}</div>
-          </template>
           <template v-slot:icon>
             <img :src="item.icon" class="step-icon" />
+          </template>
+          <template v-slot:title>
+            <span>{{ item.title }}</span>
+          </template>
+          <template v-slot:description>
+            <div class="about-me-description">
+              <span>{{ item.description.label }}</span>
+              <span>{{ item.description.content }}</span>
+            </div>
           </template>
         </el-step>
       </el-steps>
@@ -65,6 +68,15 @@ onMounted(() => {
   height: 100px;
 }
 
+.about-me-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
 @media screen and (max-width: 768px) {
   .about-me-wrapper {
     padding: 0 3rem;
@@ -78,6 +90,17 @@ onMounted(() => {
   .about-me-content {
     height: 450px;
     margin-top: 1.2rem;
+  }
+  
+  .about-me-description{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    span{
+      margin-right: 1rem;
+    }
   }
 }
 </style>

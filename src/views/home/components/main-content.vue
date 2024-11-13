@@ -7,8 +7,7 @@
             <div class="sidebar-avatar" :class="{ 'img-trans': isTrans }">
               <img
                 class="sidebar-avatar-img"
-                data-src="/person.png"
-                src="/person.png"
+                src="/images/person.png"
               />
             </div>
             <div class="sidebar-name">{{ proxy.$global.name }}</div>
