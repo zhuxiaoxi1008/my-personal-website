@@ -1,18 +1,17 @@
 <template>
-    <div class="wrapper">
-        <h3 class="tips-label">{{ proxy.$global.tips.label }}</h3>
-        <p class="tips-content">{{ proxy.$global.tips.content }}</p>
-    </div>
+  <div class="wrapper">
+    <h3 class="tips-label">{{ proxy.$global.tips.label }}</h3>
+    <p class="tips-content">{{ proxy.$global.tips.content }}</p>
+  </div>
 </template>
 
 <script setup>
-const instance = getCurrentInstance()
-const { proxy } = instance
-
+const instance = getCurrentInstance();
+const { proxy } = instance;
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,13 +23,19 @@ const { proxy } = instance
   padding: 18px;
 }
 
-.tips-label{
-    margin: 0;
-    color: $primary-text;
+.tips-label {
+  margin: 0;
+  color: $primary-text;
 }
 
-.tips-content{
-    text-indent: 2em;
-    color: $secondary-text;
+.tips-content {
+  text-indent: 2em;
+  color: $secondary-text;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 24px;
+  }
 }
 </style>

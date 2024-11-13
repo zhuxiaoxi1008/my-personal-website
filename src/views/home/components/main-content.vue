@@ -5,7 +5,11 @@
         <div class="sidebar">
           <div class="sidebar-card" :class="{ 'sidebar-trans': isTrans }">
             <div class="sidebar-avatar" :class="{ 'img-trans': isTrans }">
-              <img class="sidebar-avatar-img" data-src="/person.png" src="/person.png" />
+              <img
+                class="sidebar-avatar-img"
+                data-src="/person.png"
+                src="/person.png"
+              />
             </div>
             <div class="sidebar-name">{{ proxy.$global.name }}</div>
             <div class="sidebar-label">{{ proxy.$global.hi }}</div>
@@ -20,7 +24,11 @@
             </div>
             <el-divider class="divider" border-style="dashed" />
             <ul>
-              <li class="other-item" v-for="(item, key) in proxy.$global.info" :key="key">
+              <li
+                class="other-item"
+                v-for="(item, key) in proxy.$global.info"
+                :key="key"
+              >
                 <span class="item-label">{{ item.label }}:</span>
                 <span class="item-label-light">{{ item.value }}</span>
               </li>
@@ -35,14 +43,20 @@
       <div class="container-right">
         <div class="container-right-content">
           <div class="brand-card-list" :class="{ 'skill-trans': isTrans }">
-            <div class="brand-card-item" v-for="(skillItem, k) in proxy.$global.skillList" :key="k">
+            <div
+              class="brand-card-item"
+              v-for="(skillItem, k) in proxy.$global.skillList"
+              :key="k"
+            >
               <div class="card-item">
                 <h3 class="card-item-title">{{ skillItem.title }}</h3>
-                <el-divider class="divider" border-style="dashed" />
+                <el-divider
+                  class="divider right-card-item-divider"
+                  border-style="dashed"
+                />
                 <div class="card-item-content">{{ skillItem.name }}</div>
               </div>
             </div>
-
           </div>
           <tips :class="{ 'skill-trans': isTrans }"></tips>
         </div>
@@ -50,48 +64,47 @@
     </section>
     <about-me></about-me>
   </section>
-
 </template>
 
 <script setup>
-
-import tips from './tips.vue'
-import aboutMe from './about-me.vue'
+import tips from "./tips.vue";
+import aboutMe from "./about-me.vue";
 
 const instance = getCurrentInstance();
 const { proxy } = instance;
 
-const isTrans = ref(false)
+const isTrans = ref(false);
 
-window.addEventListener('scroll', (e) => {
-  const clientHeight = document.documentElement.clientHeight
-  const scrollTop = document.documentElement.scrollTop
+window.addEventListener("scroll", (e) => {
+  const clientHeight = document.documentElement.clientHeight;
+  const scrollTop = document.documentElement.scrollTop;
   if (scrollTop > clientHeight) {
     isTrans.value = true;
   } else {
     isTrans.value = false;
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
 .sidebar-trans {
   transform: translateY(-50%);
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 .main-content {
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-  transition: all .4s linear;
+  transition: all 0.4s linear;
 }
 
 .container-row {
+  height: 320px;
   display: flex;
   justify-content: space-between;
-  transition: all .4s linear;
-  height: 320px;
+  transition: all 0.4s linear;
+  // height: 320px;
   box-sizing: border-box;
 }
 
@@ -133,7 +146,7 @@ window.addEventListener('scroll', (e) => {
   width: calc(100% - 60px);
   background-color: #fcfcfe;
   border-radius: 5px 5px 0 0;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .sidebar-avatar {
@@ -161,8 +174,6 @@ window.addEventListener('scroll', (e) => {
   height: 100%;
   position: relative;
 }
-
-
 
 .container-left {
   flex: 1;
@@ -196,7 +207,7 @@ window.addEventListener('scroll', (e) => {
 
 .skill-trans {
   transform: translateY(-80px);
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 .brand-card-item {
@@ -216,7 +227,7 @@ window.addEventListener('scroll', (e) => {
   width: calc(100% - 60px);
   background-color: #fcfcfe;
   border-radius: 5px 5px 0 0;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .card-item {
@@ -261,5 +272,69 @@ li {
 
 .downResume:hover {
   font-weight: 700;
+}
+
+// 适配手机
+@media screen and (max-width: 768px) {
+  .img-trans {
+    position: relative;
+  }
+
+  .trans,
+  .sidebar-trans,
+  .skill-trans {
+    transform: translateY(0%);
+  }
+
+  .container-row {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .container-left {
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+
+  .brand-card-list {
+    flex-direction: column;
+  }
+
+  .brand-card-item {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .sidebar-card {
+    padding: 20px;
+  }
+
+  .sidebar-avatar {
+    top: -100px;
+  }
+
+  .card-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .divider.right-card-item-divider {
+    display: none;
+  }
+
+  .container-right {
+    padding: 20px;
+  }
+
+  .container-right-content {
+    padding: 0;
+  }
+
+  ul {
+    padding: 2rem;
+  }
 }
 </style>

@@ -5,7 +5,10 @@
         <div class="row">
           <div class="row-col-left"></div>
           <div class="row-col-right">
-            <div class="banner-text" :class="{'trans': isTrans, 'default': !isTrans}">
+            <div
+              class="banner-text"
+              :class="{ trans: isTrans, default: !isTrans }"
+            >
               <p class="text-tip">{{ proxy.$global.middleImgPage.title }}</p>
               <p class="text-main">{{ proxy.$global.middleImgPage.content }}</p>
             </div>
@@ -22,16 +25,15 @@ const { proxy } = instance;
 
 const isTrans = ref(false);
 
-window.addEventListener('scroll', (e) => {
-  const clientHeight = document.documentElement.clientHeight
-  const scrollTop = document.documentElement.scrollTop
+window.addEventListener("scroll", (e) => {
+  const clientHeight = document.documentElement.clientHeight;
+  const scrollTop = document.documentElement.scrollTop;
   if (scrollTop > clientHeight) {
     isTrans.value = true;
-  }else {
+  } else {
     isTrans.value = false;
   }
-})
-
+});
 </script>
 
 <style lang="scss" scoped>
@@ -44,8 +46,8 @@ window.addEventListener('scroll', (e) => {
   overflow: hidden;
   border-radius: 0 0 20px 20px;
   box-shadow: 0 2px 20px #0000001a;
-  transition: all .4s linear;
-  background-image: url('/shan1.jpg');
+  transition: all 0.4s linear;
+  background-image: url("/shan1.jpg");
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -101,22 +103,57 @@ window.addEventListener('scroll', (e) => {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, .2);
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.2);
   background: url("/title_bg.png");
   background-clip: text;
   color: transparent;
   margin: 40px 0;
 }
 
-.default{
+.default {
   transform: translateX(-50%);
 }
 
-.trans{
+.trans {
   transform: translateX(0);
 }
 
-.banner-text{
-  transition: all .2s linear;
+.banner-text {
+  transition: all 0.2s linear;
+}
+
+// 适配手机
+@media screen and (max-width: 768px) {
+  .row-warpper {
+    max-width: 100%;
+    padding-left: 2rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row-col-left {
+    display: none;
+  }
+
+  .row-col-right {
+    margin-left: 0;
+  }
+
+  .banner-text.default {
+    transform: translateX(0);
+  }
+
+  .text-tip {
+    font-size: 1rem;
+  }
+
+  .text-main {
+    font-size: 2rem;
+  }
 }
 </style>
