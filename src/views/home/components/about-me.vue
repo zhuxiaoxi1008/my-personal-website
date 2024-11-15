@@ -51,7 +51,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .about-me-wrapper {
   position: relative;
   display: flex;
@@ -101,6 +101,12 @@ onMounted(() => {
     span{
       margin-right: 1rem;
     }
+  }
+}
+
+@media screen and (min-width:200px) and (max-width: 400px) {
+  .about-me-wrapper :deep(.el-step__description){
+    padding-right: 10px;
   }
 }
 </style>
