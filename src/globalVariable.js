@@ -3,6 +3,7 @@ let global = {
   subText: "车行远道必有辙 人经沧桑需常省",
   name: "流浪的苏轼",
   hi: '" Hi ! 👋 "',
+  homefooterText: '版权所有 © 2024 流浪的苏轼', 
   info: [
     {
       label: "民族",

@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="project-warrper">
         <h3>{{ proxy.$global.aboutProject.label }}</h3>
         <div class="project-list">
             <figure-item v-for="(item, k) in proxy.$global.aboutProject.list" :key="k" :img="item.img"
@@ -17,10 +17,20 @@ const proxy = getCurrentInstance().proxy;
 
 <style lang="scss" scoped>
 .project-list {
+    margin-top: 1.2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    padding: 0 50px;
+}
+
+@media (max-width: 768px) {
+    .project-warrper{
+        padding: 0 3rem;
+    }
+    .project-list {
+        grid-template-columns:  1fr;
+        gap: 10px;
+    }
 }
 
 .project-card {

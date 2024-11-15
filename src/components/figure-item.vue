@@ -51,7 +51,7 @@ const prop = defineProps({
 </script>
 
 <style lang="scss" scoped>
-$mask-color: rgba(0, 0, 0, 0.8);
+$mask-color: rgba(0, 0, 0, 0.6);
 $description-color: rgba(255, 255, 255, 0.9);
 .size-warrper {
   position: absolute;
