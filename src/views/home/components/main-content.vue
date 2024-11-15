@@ -62,12 +62,14 @@
       </div>
     </section>
     <about-me></about-me>
+    <about-project></about-project>
   </section>
 </template>
 
 <script setup>
 import tips from "./tips.vue";
 import aboutMe from "./about-me.vue";
+import aboutProject from "./about-project.vue";
 
 const instance = getCurrentInstance();
 const { proxy } = instance;

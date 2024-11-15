@@ -10,7 +10,6 @@ import welcome from './components/welcome-page.vue'
 import midldleImg from './components/middle-img-page.vue'
 import mainContent from './components/main-content.vue'
 
-
 </script>
 
 <style scoped>
